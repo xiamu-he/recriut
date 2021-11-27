@@ -1,0 +1,185 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.qzx.recruit.mapper.ActivityReservationMapper">
+  <resultMap id="BaseResultMap" type="com.qzx.recruit.domain.ActivityReservation">
+    <!--@mbg.generated-->
+    <!--@Table activity_reservation-->
+    <id column="id" jdbcType="INTEGER" property="id" />
+    <result column="department" jdbcType="INTEGER" property="department" />
+    <result column="name" jdbcType="VARCHAR" property="name" />
+    <result column="phone_num" jdbcType="VARCHAR" property="phoneNum" />
+    <result column="person_num" jdbcType="INTEGER" property="personNum" />
+    <result column="activity_theme" jdbcType="VARCHAR" property="activityTheme" />
+    <result column="activity_content" jdbcType="VARCHAR" property="activityContent" />
+    <result column="start_time" jdbcType="INTEGER" property="startTime" />
+    <result column="end_time" jdbcType="INTEGER" property="endTime" />
+    <result column="day" jdbcType="VARCHAR" property="day" />
+    <result column="state" jdbcType="INTEGER" property="state" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    <!--@mbg.generated-->
+    id, department, `name`, phone_num, person_num, activity_theme, activity_content, 
+    start_time, end_time, `day`, `state`
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    <!--@mbg.generated-->
+    select 
+    <include refid="Base_Column_List" />
+    from activity_reservation
+    where id = #{id,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    <!--@mbg.generated-->
+    delete from activity_reservation
+    where id = #{id,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" keyColumn="id" keyProperty="id" parameterType="com.qzx.recruit.domain.ActivityReservation" useGeneratedKeys="true">
+    <!--@mbg.generated-->
+    insert into activity_reservation (department, `name`, phone_num, 
+      person_num, activity_theme, activity_content, 
+      start_time, end_time, `day`, 
+      `state`)
+    values (#{department,jdbcType=INTEGER}, #{name,jdbcType=VARCHAR}, #{phoneNum,jdbcType=VARCHAR}, 
+      #{personNum,jdbcType=INTEGER}, #{activityTheme,jdbcType=VARCHAR}, #{activityContent,jdbcType=VARCHAR}, 
+      #{startTime,jdbcType=INTEGER}, #{endTime,jdbcType=INTEGER}, #{day,jdbcType=VARCHAR}, 
+      #{state,jdbcType=INTEGER})
+  </insert>
+  <insert id="insertSelective" keyColumn="id" keyProperty="id" parameterType="com.qzx.recruit.domain.ActivityReservation" useGeneratedKeys="true">
+    <!--@mbg.generated-->
+    insert into activity_reservation
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="department != null">
+        department,
+      </if>
+      <if test="name != null">
+        `name`,
+      </if>
+      <if test="phoneNum != null">
+        phone_num,
+      </if>
+      <if test="personNum != null">
+        person_num,
+      </if>
+      <if test="activityTheme != null">
+        activity_theme,
+      </if>
+      <if test="activityContent != null">
+        activity_content,
+      </if>
+      <if test="startTime != null">
+        start_time,
+      </if>
+      <if test="endTime != null">
+        end_time,
+      </if>
+      <if test="day != null">
+        `day`,
+      </if>
+      <if test="state != null">
+        `state`,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="department != null">
+        #{department,jdbcType=INTEGER},
+      </if>
+      <if test="name != null">
+        #{name,jdbcType=VARCHAR},
+      </if>
+      <if test="phoneNum != null">
+        #{phoneNum,jdbcType=VARCHAR},
+      </if>
+      <if test="personNum != null">
+        #{personNum,jdbcType=INTEGER},
+      </if>
+      <if test="activityTheme != null">
+        #{activityTheme,jdbcType=VARCHAR},
+      </if>
+      <if test="activityContent != null">
+        #{activityContent,jdbcType=VARCHAR},
+      </if>
+      <if test="startTime != null">
+        #{startTime,jdbcType=INTEGER},
+      </if>
+      <if test="endTime != null">
+        #{endTime,jdbcType=INTEGER},
+      </if>
+      <if test="day != null">
+        #{day,jdbcType=VARCHAR},
+      </if>
+      <if test="state != null">
+        #{state,jdbcType=INTEGER},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.qzx.recruit.domain.ActivityReservation">
+    <!--@mbg.generated-->
+    update activity_reservation
+    <set>
+      <if test="department != null">
+        department = #{department,jdbcType=INTEGER},
+      </if>
+      <if test="name != null">
+        `name` = #{name,jdbcType=VARCHAR},
+      </if>
+      <if test="phoneNum != null">
+        phone_num = #{phoneNum,jdbcType=VARCHAR},
+      </if>
+      <if test="personNum != null">
+        person_num = #{personNum,jdbcType=INTEGER},
+      </if>
+      <if test="activityTheme != null">
+        activity_theme = #{activityTheme,jdbcType=VARCHAR},
+      </if>
+      <if test="activityContent != null">
+        activity_content = #{activityContent,jdbcType=VARCHAR},
+      </if>
+      <if test="startTime != null">
+        start_time = #{startTime,jdbcType=INTEGER},
+      </if>
+      <if test="endTime != null">
+        end_time = #{endTime,jdbcType=INTEGER},
+      </if>
+      <if test="day != null">
+        `day` = #{day,jdbcType=VARCHAR},
+      </if>
+      <if test="state != null">
+        `state` = #{state,jdbcType=INTEGER},
+      </if>
+    </set>
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.qzx.recruit.domain.ActivityReservation">
+    <!--@mbg.generated-->
+    update activity_reservation
+    set department = #{department,jdbcType=INTEGER},
+      `name` = #{name,jdbcType=VARCHAR},
+      phone_num = #{phoneNum,jdbcType=VARCHAR},
+      person_num = #{personNum,jdbcType=INTEGER},
+      activity_theme = #{activityTheme,jdbcType=VARCHAR},
+      activity_content = #{activityContent,jdbcType=VARCHAR},
+      start_time = #{startTime,jdbcType=INTEGER},
+      end_time = #{endTime,jdbcType=INTEGER},
+      `day` = #{day,jdbcType=VARCHAR},
+      `state` = #{state,jdbcType=INTEGER}
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+
+<!--auto generated by MybatisCodeHelper on 2021-10-26-->
+  <select id="selectAllByDayGreaterThanEqualCurDay" resultMap="BaseResultMap">
+    select
+    <include refid="Base_Column_List"/>
+    from activity_reservation
+    where `day` <![CDATA[>=]]> #{today,jdbcType=VARCHAR} and state = 0
+    order by start_time
+  </select>
+
+<!--auto generated by MybatisCodeHelper on 2021-10-26-->
+  <select id="selectByDepartment" resultMap="BaseResultMap">
+    select
+    <include refid="Base_Column_List"/>
+    from activity_reservation
+    where department=#{department,jdbcType=INTEGER}
+    order by day desc ,start_time asc
+  </select>
+</mapper>

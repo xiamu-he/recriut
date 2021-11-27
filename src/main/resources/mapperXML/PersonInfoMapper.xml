@@ -1,0 +1,506 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.qzx.recruit.mapper.PersonInfoMapper">
+    <resultMap id="BaseResultMap" type="com.qzx.recruit.domain.PersonInfo">
+        <!--@mbg.generated-->
+        <!--@Table person_info-->
+        <id column="phone_num" jdbcType="VARCHAR" property="phoneNum"/>
+        <result column="name" jdbcType="VARCHAR" property="name"/>
+        <result column="password" jdbcType="VARCHAR" property="password"/>
+        <result column="sex" jdbcType="INTEGER" property="sex"/>
+        <result column="college" jdbcType="INTEGER" property="college"/>
+        <result column="profession" jdbcType="VARCHAR" property="profession"/>
+        <result column="stu_id" jdbcType="VARCHAR" property="stuId"/>
+        <result column="campus" jdbcType="VARCHAR" property="campus"/>
+        <result column="grade" jdbcType="INTEGER" property="grade"/>
+        <result column="department" jdbcType="INTEGER" property="department"/>
+        <result column="second_depart" jdbcType="INTEGER" property="secondDepart"/>
+        <result column="alter_depart" jdbcType="INTEGER" property="alterDepart"/>
+        <result column="adjust" jdbcType="INTEGER" property="adjust"/>
+        <result column="state" jdbcType="INTEGER" property="state"/>
+        <result column="resume_score" jdbcType="INTEGER" property="resumeScore"/>
+        <result column="isapply" jdbcType="INTEGER" property="isapply"/>
+        <result column="applytime" jdbcType="TIMESTAMP" property="applytime"/>
+        <result column="altertimes" jdbcType="INTEGER" property="altertimes"/>
+        <result column="interviewtime" jdbcType="VARCHAR" property="interviewtime"/>
+        <result column="view_score" jdbcType="INTEGER" property="viewScore"/>
+        <result column="notice" jdbcType="VARCHAR" property="notice"/>
+    </resultMap>
+    <sql id="Base_Column_List">
+        <!--@mbg.generated-->
+        phone_num, `name`, `password`, sex, college, profession, stu_id, campus, grade, department,
+        second_depart, alter_depart, adjust, `state`, resume_score, isapply, applytime, altertimes,
+        interviewtime, view_score, notice
+    </sql>
+    <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="BaseResultMap">
+        <!--@mbg.generated-->
+        select
+        <include refid="Base_Column_List"/>
+        from person_info
+        where phone_num = #{phoneNum,jdbcType=VARCHAR}
+    </select>
+    <delete id="deleteByPrimaryKey" parameterType="java.lang.String">
+        <!--@mbg.generated-->
+        delete
+        from person_info
+        where phone_num = #{phoneNum,jdbcType=VARCHAR}
+    </delete>
+    <insert id="insert" parameterType="com.qzx.recruit.domain.PersonInfo">
+        <!--@mbg.generated-->
+        insert into person_info (phone_num, `name`, `password`,
+                                 sex, college, profession,
+                                 stu_id, campus, grade,
+                                 department, second_depart, alter_depart,
+                                 adjust, `state`, resume_score,
+                                 isapply, applytime, altertimes,
+                                 interviewtime, view_score, notice)
+        values (#{phoneNum,jdbcType=VARCHAR}, #{name,jdbcType=VARCHAR}, #{password,jdbcType=VARCHAR},
+                #{sex,jdbcType=INTEGER}, #{college,jdbcType=INTEGER}, #{profession,jdbcType=VARCHAR},
+                #{stuId,jdbcType=VARCHAR}, #{campus,jdbcType=VARCHAR}, #{grade,jdbcType=INTEGER},
+                #{department,jdbcType=INTEGER}, #{secondDepart,jdbcType=INTEGER}, #{alterDepart,jdbcType=INTEGER},
+                #{adjust,jdbcType=INTEGER}, #{state,jdbcType=INTEGER}, #{resumeScore,jdbcType=INTEGER},
+                #{isapply,jdbcType=INTEGER}, #{applytime,jdbcType=TIMESTAMP}, #{altertimes,jdbcType=INTEGER},
+                #{interviewtime,jdbcType=VARCHAR}, #{viewScore,jdbcType=INTEGER}, #{notice,jdbcType=VARCHAR})
+    </insert>
+    <insert id="insertSelective" parameterType="com.qzx.recruit.domain.PersonInfo">
+        <!--@mbg.generated-->
+        insert into person_info
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+            <if test="phoneNum != null">
+                phone_num,
+            </if>
+            <if test="name != null">
+                `name`,
+            </if>
+            <if test="password != null">
+                `password`,
+            </if>
+            <if test="sex != null">
+                sex,
+            </if>
+            <if test="college != null">
+                college,
+            </if>
+            <if test="profession != null">
+                profession,
+            </if>
+            <if test="stuId != null">
+                stu_id,
+            </if>
+            <if test="campus != null">
+                campus,
+            </if>
+            <if test="grade != null">
+                grade,
+            </if>
+            <if test="department != null">
+                department,
+            </if>
+            <if test="secondDepart != null">
+                second_depart,
+            </if>
+            <if test="alterDepart != null">
+                alter_depart,
+            </if>
+            <if test="adjust != null">
+                adjust,
+            </if>
+            <if test="state != null">
+                `state`,
+            </if>
+            <if test="resumeScore != null">
+                resume_score,
+            </if>
+            <if test="isapply != null">
+                isapply,
+            </if>
+            <if test="applytime != null">
+                applytime,
+            </if>
+            <if test="altertimes != null">
+                altertimes,
+            </if>
+            <if test="interviewtime != null">
+                interviewtime,
+            </if>
+            <if test="viewScore != null">
+                view_score,
+            </if>
+            <if test="notice != null">
+                notice,
+            </if>
+        </trim>
+        <trim prefix="values (" suffix=")" suffixOverrides=",">
+            <if test="phoneNum != null">
+                #{phoneNum,jdbcType=VARCHAR},
+            </if>
+            <if test="name != null">
+                #{name,jdbcType=VARCHAR},
+            </if>
+            <if test="password != null">
+                #{password,jdbcType=VARCHAR},
+            </if>
+            <if test="sex != null">
+                #{sex,jdbcType=INTEGER},
+            </if>
+            <if test="college != null">
+                #{college,jdbcType=INTEGER},
+            </if>
+            <if test="profession != null">
+                #{profession,jdbcType=VARCHAR},
+            </if>
+            <if test="stuId != null">
+                #{stuId,jdbcType=VARCHAR},
+            </if>
+            <if test="campus != null">
+                #{campus,jdbcType=VARCHAR},
+            </if>
+            <if test="grade != null">
+                #{grade,jdbcType=INTEGER},
+            </if>
+            <if test="department != null">
+                #{department,jdbcType=INTEGER},
+            </if>
+            <if test="secondDepart != null">
+                #{secondDepart,jdbcType=INTEGER},
+            </if>
+            <if test="alterDepart != null">
+                #{alterDepart,jdbcType=INTEGER},
+            </if>
+            <if test="adjust != null">
+                #{adjust,jdbcType=INTEGER},
+            </if>
+            <if test="state != null">
+                #{state,jdbcType=INTEGER},
+            </if>
+            <if test="resumeScore != null">
+                #{resumeScore,jdbcType=INTEGER},
+            </if>
+            <if test="isapply != null">
+                #{isapply,jdbcType=INTEGER},
+            </if>
+            <if test="applytime != null">
+                #{applytime,jdbcType=TIMESTAMP},
+            </if>
+            <if test="altertimes != null">
+                #{altertimes,jdbcType=INTEGER},
+            </if>
+            <if test="interviewtime != null">
+                #{interviewtime,jdbcType=VARCHAR},
+            </if>
+            <if test="viewScore != null">
+                #{viewScore,jdbcType=INTEGER},
+            </if>
+            <if test="notice != null">
+                #{notice,jdbcType=VARCHAR},
+            </if>
+        </trim>
+    </insert>
+    <update id="updateByPrimaryKeySelective" parameterType="com.qzx.recruit.domain.PersonInfo">
+        <!--@mbg.generated-->
+        update person_info
+        <set>
+            <if test="name != null">
+                `name` = #{name,jdbcType=VARCHAR},
+            </if>
+            <if test="password != null">
+                `password` = #{password,jdbcType=VARCHAR},
+            </if>
+            <if test="sex != null">
+                sex = #{sex,jdbcType=INTEGER},
+            </if>
+            <if test="college != null">
+                college = #{college,jdbcType=INTEGER},
+            </if>
+            <if test="profession != null">
+                profession = #{profession,jdbcType=VARCHAR},
+            </if>
+            <if test="stuId != null">
+                stu_id = #{stuId,jdbcType=VARCHAR},
+            </if>
+            <if test="campus != null">
+                campus = #{campus,jdbcType=VARCHAR},
+            </if>
+            <if test="grade != null">
+                grade = #{grade,jdbcType=INTEGER},
+            </if>
+            <if test="department != null">
+                department = #{department,jdbcType=INTEGER},
+            </if>
+            <if test="secondDepart != null">
+                second_depart = #{secondDepart,jdbcType=INTEGER},
+            </if>
+            <if test="alterDepart != null">
+                alter_depart = #{alterDepart,jdbcType=INTEGER},
+            </if>
+            <if test="adjust != null">
+                adjust = #{adjust,jdbcType=INTEGER},
+            </if>
+            <if test="state != null">
+                `state` = #{state,jdbcType=INTEGER},
+            </if>
+            <if test="resumeScore != null">
+                resume_score = #{resumeScore,jdbcType=INTEGER},
+            </if>
+            <if test="isapply != null">
+                isapply = #{isapply,jdbcType=INTEGER},
+            </if>
+            <if test="applytime != null">
+                applytime = #{applytime,jdbcType=TIMESTAMP},
+            </if>
+            <if test="altertimes != null">
+                altertimes = #{altertimes,jdbcType=INTEGER},
+            </if>
+            <if test="interviewtime != null">
+                interviewtime = #{interviewtime,jdbcType=VARCHAR},
+            </if>
+            <if test="viewScore != null">
+                view_score = #{viewScore,jdbcType=INTEGER},
+            </if>
+            <if test="notice != null">
+                notice = #{notice,jdbcType=VARCHAR},
+            </if>
+        </set>
+        where phone_num = #{phoneNum,jdbcType=VARCHAR}
+    </update>
+    <update id="updateByPrimaryKey" parameterType="com.qzx.recruit.domain.PersonInfo">
+        <!--@mbg.generated-->
+        update person_info
+        set `name`        = #{name,jdbcType=VARCHAR},
+            `password`    = #{password,jdbcType=VARCHAR},
+            sex           = #{sex,jdbcType=INTEGER},
+            college       = #{college,jdbcType=INTEGER},
+            profession    = #{profession,jdbcType=VARCHAR},
+            stu_id        = #{stuId,jdbcType=VARCHAR},
+            campus        = #{campus,jdbcType=VARCHAR},
+            grade         = #{grade,jdbcType=INTEGER},
+            department    = #{department,jdbcType=INTEGER},
+            second_depart = #{secondDepart,jdbcType=INTEGER},
+            alter_depart  = #{alterDepart,jdbcType=INTEGER},
+            adjust        = #{adjust,jdbcType=INTEGER},
+            `state`       = #{state,jdbcType=INTEGER},
+            resume_score  = #{resumeScore,jdbcType=INTEGER},
+            isapply       = #{isapply,jdbcType=INTEGER},
+            applytime     = #{applytime,jdbcType=TIMESTAMP},
+            altertimes    = #{altertimes,jdbcType=INTEGER},
+            interviewtime = #{interviewtime,jdbcType=VARCHAR},
+            view_score    = #{viewScore,jdbcType=INTEGER},
+            notice        = #{notice,jdbcType=VARCHAR}
+        where phone_num = #{phoneNum,jdbcType=VARCHAR}
+    </update>
+    <sql id="Join_Column_List">
+        <!--@mbg.generated-->
+        person_info.phone_num as person_info_phone_num,
+        person_info.name as person_info_name,
+        person_info.password as person_info_password,
+        person_info.sex as person_info_sex,
+        person_info.college as person_info_college,
+        person_info.profession as person_info_profession,
+        person_info.stu_id as person_info_stu_id,
+        person_info.campus as person_info_campus,
+        person_info.grade as person_info_grade,
+        person_info.department as person_info_department,
+        person_info.second_depart as person_info_second_depart,
+        person_info.alter_depart as person_info_alter_depart,
+        person_info.adjust as person_info_adjust,
+        person_info.state as person_info_state,
+        person_info.resume_score as person_info_resume_score,
+        person_info.isapply as person_info_isapply,
+        person_info.applytime as person_info_applytime,
+        person_info.altertimes as person_info_altertimes,
+        person_info.interviewtime as person_info_interviewtime,
+        person_info.view_score as person_info_view_score,
+        person_info.notice as person_info_notice
+    </sql>
+    <resultMap id="JoinResultMap" type="com.qzx.recruit.domain.PersonInfo">
+        <!--@mbg.generated-->
+        <id column="person_info_phone_num" property="phoneNum"/>
+        <result column="person_info_name" property="name"/>
+        <result column="person_info_password" property="password"/>
+        <result column="person_info_sex" property="sex"/>
+        <result column="person_info_college" property="college"/>
+        <result column="person_info_profession" property="profession"/>
+        <result column="person_info_stu_id" property="stuId"/>
+        <result column="person_info_campus" property="campus"/>
+        <result column="person_info_grade" property="grade"/>
+        <result column="person_info_department" property="department"/>
+        <result column="person_info_second_depart" property="secondDepart"/>
+        <result column="person_info_alter_depart" property="alterDepart"/>
+        <result column="person_info_adjust" property="adjust"/>
+        <result column="person_info_state" property="state"/>
+        <result column="person_info_resume_score" property="resumeScore"/>
+        <result column="person_info_isapply" property="isapply"/>
+        <result column="person_info_applytime" property="applytime"/>
+        <result column="person_info_altertimes" property="altertimes"/>
+        <result column="person_info_interviewtime" property="interviewtime"/>
+        <result column="person_info_view_score" property="viewScore"/>
+        <result column="person_info_notice" property="notice"/>
+    </resultMap>
+
+    <resultMap id="JoinPersonApplyResultMap" type="com.qzx.recruit.domain.PersonInfoWithPersonApply"
+               extends="JoinResultMap">
+        <association property="personApply" resultMap="com.qzx.recruit.mapper.PersonApplyMapper.JoinResultMap"/>
+    </resultMap>
+    <select id="SelectJoinPersonApply" resultMap="JoinPersonApplyResultMap">
+        select<include refid="Join_Column_List"/>,
+        <include refid="com.qzx.recruit.mapper.PersonApplyMapper.Join_Column_List"/>
+        from person_info
+                     join person_apply on person_info.phone_num = person_apply.phone_num
+                and (person_info.alter_depart = #{position,jdbcType=INTEGER} or #{position,jdbcType=INTEGER} = 8)
+        where person_info.phone_num = #{phoneNum,jdbcType=VARCHAR}
+    </select>
+
+    <!--auto generated by MybatisCodeHelper on 2021-10-26-->
+    <select id="selectByPhoneNumAndAlterDepart" resultMap="BaseResultMap">
+        select
+        <include refid="Base_Column_List"/>
+        from person_info
+        where phone_num = #{phoneNum,jdbcType=VARCHAR}
+          and alter_depart = #{alterDepart,jdbcType=INTEGER}
+    </select>
+
+    <select id="SelectJoinPersonApplyByPersonInfo" resultMap="JoinPersonApplyResultMap">
+        select<include refid="Join_Column_List"/>,
+        <include refid="com.qzx.recruit.mapper.PersonApplyMapper.Join_Column_List"/>
+        from person_info
+                     join person_apply on person_info.phone_num = person_apply.phone_num
+        <where>
+            <if test="filterResumeVo.keyWord != null">
+                and (`name` like CONCAT('%'
+                    , #{filterResumeVo.keyWord}
+                    , '%')
+                    or strength like CONCAT('%'
+                    , #{filterResumeVo.keyWord}
+                    , '%'))
+            </if>
+            <if test="filterResumeVo.grade != null">
+                and grade = #{filterResumeVo.grade,jdbcType=INTEGER}
+            </if>
+            <if test="filterResumeVo.state != null">
+                and (state = #{filterResumeVo.state}
+                        or #{filterResumeVo.state} = 0)
+            </if>
+            <if test="filterResumeVo.sex != null">
+                <foreach item="sex" collection="filterResumeVo.sex" open="and person_info.sex in ("
+                         separator="," close=")">
+                    #{sex}
+                </foreach>
+            </if>
+            <if test="filterResumeVo.college != null">
+                <foreach item="college" collection="filterResumeVo.college" open="and person_info.college in ("
+                         separator="," close=")">
+                    #{college}
+                </foreach>
+            </if>
+            <if test="filterResumeVo.campus != null">
+                <foreach item="campus" collection="filterResumeVo.campus" open="and person_info.campus in ("
+                         separator=","
+                         close=")">
+                    #{campus}
+                </foreach>
+            </if>
+            <if test="filterResumeVo.department != null">
+                <foreach item="department" collection="filterResumeVo.department" open="and person_info.department in ("
+                         separator="," close=")">
+                    #{department}
+                </foreach>
+            </if>
+            <if test="filterResumeVo.secondDepart != null">
+                <foreach item="secondDepart" collection="filterResumeVo.secondDepart"
+                         open="and person_info.second_depart in ("
+                         separator="," close=")">
+                    #{secondDepart}
+                </foreach>
+            </if>
+            <if test="filterResumeVo.alterDepart != null">
+                <foreach item="alterDepart" collection="filterResumeVo.alterDepart"
+                         open="and ( person_info.alter_depart in ( "
+                         separator="," close=") or  person_info.alter_depart is null )">
+                    #{alterDepart}
+                </foreach>
+            </if>
+            <if test="filterResumeVo.profession != null">
+                <foreach item="profession" collection="filterResumeVo.profession" open="and person_info.profession in ("
+                         separator="," close=")">
+                    #{profession}
+                </foreach>
+            </if>
+        </where>
+        <if test="filterResumeVo.sorter != null">
+            <foreach item="item" collection="filterResumeVo.sorter" open="order by " separator=",">
+                ${item.prop} ${item.order}
+            </foreach>
+        </if>
+    </select>
+
+    <!--auto generated by MybatisCodeHelper on 2021-10-26-->
+    <select id="selectByPhoneNums" resultMap="BaseResultMap">
+        select
+        <include refid="Base_Column_List"/>
+        from person_info
+                where phone_num in
+        <foreach collection="phoneNums" item="phoneNum" index="index" open="(" separator="," close=")">
+            #{phoneNum}
+        </foreach>
+    </select>
+
+<!--auto generated by MybatisCodeHelper on 2021-10-26-->
+    <resultMap id="CollegeResultMap" type="com.qzx.recruit.domain.CollegeDistribution">
+        <result column="num" property="num"/>
+        <result column="college" property="college"/>
+        <result column="grade" property="grade"/>
+        <result column="sex" property="sex"/>
+        <result column="state" property="state"/>
+    </resultMap>
+    <select id="selectCollegeAllByGrade" resultMap="CollegeResultMap">
+        SELECT  count(*) as num, college, state, grade, sex from person_info
+        where grade = #{grade}
+        GROUP BY college, state, sex
+    </select>
+
+<!--auto generated by MybatisCodeHelper on 2021-10-26-->
+    <resultMap id="SexResultMap" type="com.qzx.recruit.domain.DepartmentSexInfo">
+        <result column="num" property="num"></result>
+        <result column="alter_depart" property="alter_depart"></result>
+        <result column="sex" property="sex"></result>
+        <result column="grade" property="grade"></result>
+    </resultMap>
+    <select id="selectSexByGrade" resultMap="SexResultMap">
+        select
+            count(*) as num,grade,alter_depart,sex
+        from person_info
+        where grade=#{grade,jdbcType=INTEGER}
+        group by grade,alter_depart,sex
+    </select>
+
+<!--auto generated by MybatisCodeHelper on 2021-10-27-->
+    <select id="selectByPhoneNum" resultMap="BaseResultMap">
+        select
+        <include refid="Base_Column_List"/>
+        from person_info
+        where phone_num=#{phoneNum,jdbcType=VARCHAR}
+    </select>
+
+<!--auto generated by MybatisCodeHelper on 2021-10-27-->
+    <select id="selectByPhoneNumAndPassword" resultMap="BaseResultMap">
+        select
+        <include refid="Base_Column_List"/>
+        from person_info
+        where phone_num=#{phoneNum,jdbcType=VARCHAR} and `password`=#{password,jdbcType=VARCHAR}
+    </select>
+
+    <select id="SelectJoinPersonApplyByPhoneNum" resultMap="JoinPersonApplyResultMap">
+        select<include refid="Join_Column_List"/>,
+        <include refid="com.qzx.recruit.mapper.PersonApplyMapper.Join_Column_List"/>
+        from person_info
+        join person_apply on person_info.phone_num = person_apply.phone_num
+        where person_info.phone_num = #{phoneNum,jdbcType=VARCHAR}
+    </select>
+
+<!--auto generated by MybatisCodeHelper on 2021-10-29-->
+    <select id="selectStateByPhoneNum" resultType="java.lang.Integer">
+        select `state`
+        from person_info
+        where phone_num=#{phoneNum,jdbcType=VARCHAR}
+    </select>
+</mapper>

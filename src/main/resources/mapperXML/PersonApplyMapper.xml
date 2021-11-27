@@ -1,0 +1,188 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.qzx.recruit.mapper.PersonApplyMapper">
+  <resultMap id="BaseResultMap" type="com.qzx.recruit.domain.PersonApply">
+    <!--@mbg.generated-->
+    <!--@Table person_apply-->
+    <id column="phone_num" jdbcType="VARCHAR" property="phoneNum" />
+    <result column="introduction" jdbcType="LONGVARCHAR" property="introduction" />
+    <result column="strength" jdbcType="LONGVARCHAR" property="strength" />
+    <result column="direction" jdbcType="LONGVARCHAR" property="direction" />
+    <result column="honor" jdbcType="LONGVARCHAR" property="honor" />
+    <result column="practice" jdbcType="LONGVARCHAR" property="practice" />
+    <result column="interest" jdbcType="LONGVARCHAR" property="interest" />
+    <result column="propose" jdbcType="LONGVARCHAR" property="propose" />
+    <result column="resume" jdbcType="LONGVARCHAR" property="resume" />
+    <result column="remark" jdbcType="LONGVARCHAR" property="remark" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    <!--@mbg.generated-->
+    phone_num, introduction, strength, direction, honor, practice, interest, propose, 
+    resume, remark
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="BaseResultMap">
+    <!--@mbg.generated-->
+    select 
+    <include refid="Base_Column_List" />
+    from person_apply
+    where phone_num = #{phoneNum,jdbcType=VARCHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String">
+    <!--@mbg.generated-->
+    delete from person_apply
+    where phone_num = #{phoneNum,jdbcType=VARCHAR}
+  </delete>
+  <insert id="insert" parameterType="com.qzx.recruit.domain.PersonApply">
+    <!--@mbg.generated-->
+    insert into person_apply (phone_num, introduction, strength, 
+      direction, honor, practice, 
+      interest, propose, resume, 
+      remark)
+    values (#{phoneNum,jdbcType=VARCHAR}, #{introduction,jdbcType=LONGVARCHAR}, #{strength,jdbcType=LONGVARCHAR}, 
+      #{direction,jdbcType=LONGVARCHAR}, #{honor,jdbcType=LONGVARCHAR}, #{practice,jdbcType=LONGVARCHAR}, 
+      #{interest,jdbcType=LONGVARCHAR}, #{propose,jdbcType=LONGVARCHAR}, #{resume,jdbcType=LONGVARCHAR}, 
+      #{remark,jdbcType=LONGVARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.qzx.recruit.domain.PersonApply">
+    <!--@mbg.generated-->
+    insert into person_apply
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="phoneNum != null">
+        phone_num,
+      </if>
+      <if test="introduction != null">
+        introduction,
+      </if>
+      <if test="strength != null">
+        strength,
+      </if>
+      <if test="direction != null">
+        direction,
+      </if>
+      <if test="honor != null">
+        honor,
+      </if>
+      <if test="practice != null">
+        practice,
+      </if>
+      <if test="interest != null">
+        interest,
+      </if>
+      <if test="propose != null">
+        propose,
+      </if>
+      <if test="resume != null">
+        resume,
+      </if>
+      <if test="remark != null">
+        remark,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="phoneNum != null">
+        #{phoneNum,jdbcType=VARCHAR},
+      </if>
+      <if test="introduction != null">
+        #{introduction,jdbcType=LONGVARCHAR},
+      </if>
+      <if test="strength != null">
+        #{strength,jdbcType=LONGVARCHAR},
+      </if>
+      <if test="direction != null">
+        #{direction,jdbcType=LONGVARCHAR},
+      </if>
+      <if test="honor != null">
+        #{honor,jdbcType=LONGVARCHAR},
+      </if>
+      <if test="practice != null">
+        #{practice,jdbcType=LONGVARCHAR},
+      </if>
+      <if test="interest != null">
+        #{interest,jdbcType=LONGVARCHAR},
+      </if>
+      <if test="propose != null">
+        #{propose,jdbcType=LONGVARCHAR},
+      </if>
+      <if test="resume != null">
+        #{resume,jdbcType=LONGVARCHAR},
+      </if>
+      <if test="remark != null">
+        #{remark,jdbcType=LONGVARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.qzx.recruit.domain.PersonApply">
+    <!--@mbg.generated-->
+    update person_apply
+    <set>
+      <if test="introduction != null">
+        introduction = #{introduction,jdbcType=LONGVARCHAR},
+      </if>
+      <if test="strength != null">
+        strength = #{strength,jdbcType=LONGVARCHAR},
+      </if>
+      <if test="direction != null">
+        direction = #{direction,jdbcType=LONGVARCHAR},
+      </if>
+      <if test="honor != null">
+        honor = #{honor,jdbcType=LONGVARCHAR},
+      </if>
+      <if test="practice != null">
+        practice = #{practice,jdbcType=LONGVARCHAR},
+      </if>
+      <if test="interest != null">
+        interest = #{interest,jdbcType=LONGVARCHAR},
+      </if>
+      <if test="propose != null">
+        propose = #{propose,jdbcType=LONGVARCHAR},
+      </if>
+      <if test="resume != null">
+        resume = #{resume,jdbcType=LONGVARCHAR},
+      </if>
+      <if test="remark != null">
+        remark = #{remark,jdbcType=LONGVARCHAR},
+      </if>
+    </set>
+    where phone_num = #{phoneNum,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.qzx.recruit.domain.PersonApply">
+    <!--@mbg.generated-->
+    update person_apply
+    set introduction = #{introduction,jdbcType=LONGVARCHAR},
+      strength = #{strength,jdbcType=LONGVARCHAR},
+      direction = #{direction,jdbcType=LONGVARCHAR},
+      honor = #{honor,jdbcType=LONGVARCHAR},
+      practice = #{practice,jdbcType=LONGVARCHAR},
+      interest = #{interest,jdbcType=LONGVARCHAR},
+      propose = #{propose,jdbcType=LONGVARCHAR},
+      resume = #{resume,jdbcType=LONGVARCHAR},
+      remark = #{remark,jdbcType=LONGVARCHAR}
+    where phone_num = #{phoneNum,jdbcType=VARCHAR}
+  </update>
+  <sql id="Join_Column_List">
+    <!--@mbg.generated-->
+    person_apply.phone_num as person_apply_phone_num,
+    person_apply.introduction as person_apply_introduction,
+    person_apply.strength as person_apply_strength,
+    person_apply.direction as person_apply_direction,
+    person_apply.honor as person_apply_honor,
+    person_apply.practice as person_apply_practice,
+    person_apply.interest as person_apply_interest,
+    person_apply.propose as person_apply_propose,
+    person_apply.resume as person_apply_resume,
+    person_apply.remark as person_apply_remark
+  </sql>
+  <resultMap id="JoinResultMap" type="com.qzx.recruit.domain.PersonApply">
+    <!--@mbg.generated-->
+    <id column="person_apply_phone_num" property="phoneNum"/>
+    <result column="person_apply_introduction" property="introduction"/>
+    <result column="person_apply_strength" property="strength"/>
+    <result column="person_apply_direction" property="direction"/>
+    <result column="person_apply_honor" property="honor"/>
+    <result column="person_apply_practice" property="practice"/>
+    <result column="person_apply_interest" property="interest"/>
+    <result column="person_apply_propose" property="propose"/>
+    <result column="person_apply_resume" property="resume"/>
+    <result column="person_apply_remark" property="remark"/>
+  </resultMap>
+</mapper>
